@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background"
+        android:orientation="vertical"
+        android:weightSum="1"
+        tools:context=".Home">
+
+        <ImageView
+            android:id="@+id/imgShare"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:padding="@dimen/_12sdp"
+            android:src="@mipmap/ic_share"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <Button
+                    android:id="@+id/btnGuide"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:outlineSpotShadowColor="@color/colorButtonBoder"
+                    android:text="@string/title_button_guide"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    app:backgroundTint="@color/colorButton"
+                    app:strokeColor="@color/colorButtonBoder"
+                    app:strokeWidth="@dimen/_2sdp" />
+
+                <Button
+                    android:id="@+id/btnQuestion"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_25dps"
+                    android:fontFamily="@font/fonts"
+                    android:text="@string/title_button_question"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    app:backgroundTint="@color/colorButton"
+                    app:strokeColor="@color/colorButtonBoder"
+                    app:strokeWidth="@dimen/_2sdp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <Button
+                    android:id="@+id/btnAbout"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/fonts"
+                    android:text="@string/title_button_about"
+                    android:textAllCaps="false"
+
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    app:backgroundTint="@color/colorButton"
+                    app:strokeColor="@color/colorButtonBoder"
+                    app:strokeWidth="@dimen/_2sdp" />
+
+                <Button
+                    android:id="@+id/btnMore"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_25dps"
+                    android:fontFamily="@font/fonts"
+                    android:text="@string/title_button_more"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    app:backgroundTint="@color/colorButton"
+                    app:strokeColor="@color/colorButtonBoder"
+                    app:strokeWidth="@dimen/_2sdp" />
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/frameAdsHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_50sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_50sdp"
+                android:background="@color/colorButton" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <include
+        android:visibility="gone"
+        android:id="@+id/loading"
+        layout="@layout/loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        />
+</RelativeLayout>

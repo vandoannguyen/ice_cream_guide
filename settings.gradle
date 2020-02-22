@@ -1,0 +1,2 @@
+include ':app', ':ratedialog'
+rootProject.name='iscream2_android'
