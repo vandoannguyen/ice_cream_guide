@@ -1,8 +1,16 @@
 <resources>
-    <string name="app_name">iscream2_android</string>
+    <string name="app_name">Horror Neighbor Guide</string>
+<!--    <string name="id_banner">ca-app-pub-3940256099942544/6300978111</string>-->
+<!--    <string name="ads_id_app">ca-app-pub-3940256099942544~3347511713</string>-->
+<!--    <string name="id_native_ads">ca-app-pub-3940256099942544/2247696110</string>-->
+<!--    <string name="id_interstitial_ad">/6499/example/interstitial</string>-->
+
+
     <string name="id_banner">ca-app-pub-3940256099942544/6300978111</string>
     <string name="ads_id_app">ca-app-pub-3940256099942544~3347511713</string>
     <string name="id_native_ads">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="id_interstitial_ad">/6499/example/interstitial</string>
+
 
     <string name="ad_attribution">Ad</string>
 
@@ -36,6 +44,5 @@
     <string name="title_button_about">About</string>
     <string name="title_button_question">Question</string>
     <string name="title_button_guide">Guide</string>
-    <string name="id_interstitial_ad">/6499/example/interstitial</string>
     <string name="title_activity_guide">Guide</string>
 </resources>

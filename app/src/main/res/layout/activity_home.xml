@@ -11,7 +11,7 @@
         android:background="@drawable/background"
         android:orientation="vertical"
         android:weightSum="1"
-        tools:context=".Home">
+        tools:context=".guide.Home">
 
         <ImageView
             android:id="@+id/imgShare"

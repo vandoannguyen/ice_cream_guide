@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.iscream2_android">
+    package="com.neighborhood.icescreamhorror.guide">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -12,8 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/FullscreenTheme">
-        <activity android:name=".More"></activity>
-        <activity android:name=".About" />
+        <activity android:name="com.neighborhood.icescreamhorror.guide.More"></activity>
+        <activity android:name="com.neighborhood.icescreamhorror.guide.About" />
         <activity android:name=".answer.Answers" />
         <activity android:name=".question.Questions" />
         <activity
@@ -21,15 +21,15 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_guide_detail"
             android:theme="@style/FullscreenTheme" />
-        <activity android:name=".guide.Guide" />
-        <activity android:name=".Home">
+        <activity android:name=".guide_view.Guide" />
+        <activity android:name="com.neighborhood.icescreamhorror.guide.Home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name="com.neighborhood.icescreamhorror.guide.MainActivity" />
 
         <meta-data
             android:name="com.google.android.gms.ads.AD_MANAGER_APP"

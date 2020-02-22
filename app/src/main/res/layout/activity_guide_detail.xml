@@ -8,7 +8,7 @@
 
     android:background="@color/my_statusbar_color"
 
-    tools:context=".guide_detail.GuideDetail">
+    tools:context=".guide.guide_detail.GuideDetail">
     <RelativeLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"

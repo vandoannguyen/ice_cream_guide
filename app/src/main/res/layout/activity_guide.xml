@@ -9,7 +9,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="@color/background_guide"
-        tools:context=".guide.Guide">
+        tools:context=".guide.guide_view.Guide">
 
         <RelativeLayout
             android:elevation="@dimen/_10sdp"
