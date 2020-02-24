@@ -15,14 +15,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.neighborhood.icescreamhorror.guide.guide_detail.GuideDetail;
-import com.neighborhood.icescreamhorror.guide.R;
-import com.neighborhood.icescreamhorror.guide.model.Common;
 import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.doubleclick.PublisherAdRequest;
 import com.google.android.gms.ads.doubleclick.PublisherInterstitialAd;
+import com.neighborhood.icescreamhorror.guide.R;
+import com.neighborhood.icescreamhorror.guide.guide_detail.GuideDetail;
+import com.neighborhood.icescreamhorror.guide.model.Common;
 
 import java.io.Serializable;
 import java.util.Random;
@@ -44,7 +46,10 @@ public class Guide extends AppCompatActivity {
     @BindView(R.id.loadingGuide)
     View loading;
 
+
     PublisherInterstitialAd mPublisherInterstitialAd;
+    @BindView(R.id.adViewGuide)
+    AdView adViewGuide;
     private String TAG = "GUIDE";
 
     @Override
@@ -62,12 +67,10 @@ public class Guide extends AppCompatActivity {
         MobileAds.initialize(this, getString(R.string.ads_id_app));
         mPublisherInterstitialAd = new PublisherInterstitialAd(this);
         mPublisherInterstitialAd.setAdUnitId(getString(R.string.id_interstitial_ad));
-//        AdRequest adRequest = new AdRequest.Builder().build();
-//        AdSize adSize = getAdSize();
-////        adViewGuide.setAdSize(adSize);
-//        adViewGuide.loadAd(
-//                adRequest
-//        );
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adViewGuide.loadAd(
+                adRequest
+        );
     }
 
     private void initView() {
@@ -108,19 +111,6 @@ public class Guide extends AppCompatActivity {
         super.onBackPressed();
     }
 
-    private AdSize getAdSize() {  // Step 3 - Determine the screen width (less decorations) to use for the ad width.
-        Display display = getWindowManager().getDefaultDisplay();
-        DisplayMetrics outMetrics = new DisplayMetrics();
-        display.getMetrics(outMetrics);
-        float widthPixels = outMetrics.widthPixels;
-        float density = outMetrics.density;
-
-        //you can also pass your selected width here in dp
-        int adWidth = (int) (widthPixels / density);
-        //return the optimal size depends on your orientation (landscape or portrait)
-        return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, adWidth);
-    }
-
     private void intentToScreenAds(Class guideClass, Serializable data) {
 
         mPublisherInterstitialAd.setAdListener(new AdListener() {
@@ -149,7 +139,7 @@ public class Guide extends AppCompatActivity {
             }
         });
         loading.setVisibility(View.VISIBLE);
-        int random = new Random().nextInt(3);
+        int random = new Random().nextInt(2);
         Log.e(TAG, "intentToScreenAds: " + random);
         if (random == 1) {
             mPublisherInterstitialAd.loadAd(new PublisherAdRequest.Builder().build());

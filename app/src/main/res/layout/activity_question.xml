@@ -42,7 +42,7 @@
             android:id="@+id/adViewQuestion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:adSize="SMART_BANNER"
+            app:adSize="BANNER"
             app:adUnitId="@string/id_banner" />
     </LinearLayout>
 

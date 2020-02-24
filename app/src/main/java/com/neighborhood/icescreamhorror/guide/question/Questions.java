@@ -121,7 +121,7 @@ public class Questions extends AppCompatActivity {
             }
         });
         loading.setVisibility(View.VISIBLE);
-        int random = new Random().nextInt(3);
+        int random = new Random().nextInt(2);
         Log.e(TAG, "intentToScreenAds: " + random);
         if (random == 1) {
             mPublisherInterstitialAd.loadAd(new PublisherAdRequest.Builder().build());

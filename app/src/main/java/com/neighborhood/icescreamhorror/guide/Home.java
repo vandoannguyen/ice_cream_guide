@@ -6,7 +6,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Display;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -15,6 +17,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
 import com.neighborhood.icescreamhorror.guide.R;
 import com.neighborhood.icescreamhorror.guide.guide_view.Guide;
 import com.neighborhood.icescreamhorror.guide.model.Category;
@@ -79,27 +84,28 @@ public class Home extends AppCompatActivity implements RatingDialog.RatingDialog
         MobileAds.initialize(this, getString(R.string.ads_id_app));
         mPublisherInterstitialAd = new PublisherInterstitialAd(this);
         mPublisherInterstitialAd.setAdUnitId(getString(R.string.id_interstitial_ad));
-        UnifiedNativeAdsUtils.getInstance(this).setNativeAds(frameAdsHome, R.layout.ad_unified_draw_navigator, new AdListener() {
-            @Override
-            public void onAdFailedToLoad(int i) {
-                super.onAdFailedToLoad(i);
-            }
-
-            @Override
-            public void onAdOpened() {
-                super.onAdOpened();
-            }
-        });
+//        UnifiedNativeAdsUtils.getInstance(this).setNativeAds(frameAdsHome, R.layout.ad_unified_draw_navigator, new AdListener() {
+//            @Override
+//            public void onAdFailedToLoad(int i) {
+//                super.onAdFailedToLoad(i);
+//            }
+//
+//            @Override
+//            public void onAdOpened() {
+//                super.onAdOpened();
+//            }
+//        });
+        AdView adView = new AdView(this);
+        adView.setAdSize(AdSize.MEDIUM_RECTANGLE);
+        adView.setAdUnitId(getString(R.string.id_banner));
+        adView.loadAd(new AdRequest.Builder().build());
+        frameAdsHome.removeAllViews();
+        frameAdsHome.addView(adView);
         setCustomDialog(this);
     }
 
     private void initControl() {
-        loading.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.e(TAG, "onClick: clicked loading");
-            }
-        });
+        loading.setOnClickListener(v -> Log.e(TAG, "onClick: clicked loading"));
     }
 
     private void getDataFromJson(Context context) {
@@ -207,9 +213,9 @@ public class Home extends AppCompatActivity implements RatingDialog.RatingDialog
             }
         });
         loading.setVisibility(View.VISIBLE);
-        int random = new Random().nextInt(3);
+        int random = new Random().nextInt(2);
         Log.e(TAG, "intentToScreenAds: " + random);
-        if (random == 1 || random == 2) {
+        if (random == 1) {
             mPublisherInterstitialAd.loadAd(new PublisherAdRequest.Builder().build());
         } else {
             loading.setVisibility(View.VISIBLE);
@@ -283,6 +289,7 @@ public class Home extends AppCompatActivity implements RatingDialog.RatingDialog
         ratingDialog.showDialog();
     }
 
+
     @Override
     public void onDismiss() {
     }
@@ -298,4 +305,17 @@ public class Home extends AppCompatActivity implements RatingDialog.RatingDialog
     @Override
     public void onRatingChanged(float rating) {
     }
+
+    private AdSize getAdSize() {  // Step 3 - Determine the screen width (less decorations) to use for the ad width.
+        Display display = getWindowManager().getDefaultDisplay();
+        DisplayMetrics outMetrics = new DisplayMetrics();
+        display.getMetrics(outMetrics);
+        float widthPixels = outMetrics.widthPixels;
+        float density = outMetrics.density;
+        //you can also pass your selected width here in dp
+        int adWidth = (int) (widthPixels / density);
+        //return the optimal size depends on your orientation (landscape or portrait)
+        return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, adWidth);
+    }
+
 }

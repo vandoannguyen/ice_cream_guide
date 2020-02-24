@@ -48,18 +48,17 @@
         tools:listitem="@layout/item_anwser"
         app:layout_constraintBottom_toTopOf="@id/adAnswer"
         />
+
     <com.google.android.gms.ads.AdView
-        ads:layout_constraintStart_toStartOf="parent"
-        ads:layout_constraintEnd_toEndOf="parent"
-        ads:layout_constraintBottom_toBottomOf="parent"
-        ads:layout_constraintTop_toBottomOf="@id/revAnswer"
-        xmlns:ads="http://schemas.android.com/apk/res-auto"
         android:id="@+id/adAnswer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        ads:adSize="SMART_BANNER"
-        ads:adUnitId="@string/id_banner">
-    </com.google.android.gms.ads.AdView>
+        android:layout_centerHorizontal="true"
+        app:adSize="BANNER"
+        app:adUnitId="@string/id_banner"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/revAnswer"></com.google.android.gms.ads.AdView>
 </androidx.constraintlayout.widget.ConstraintLayout>
