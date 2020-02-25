@@ -4,8 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.SyncStateContract;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
@@ -15,6 +17,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.ads.AdRequest;
@@ -26,6 +29,8 @@ import com.neighborhood.icescreamhorror.guide.model.Category;
 import com.neighborhood.icescreamhorror.guide.model.Common;
 import com.neighborhood.icescreamhorror.guide.model.Question;
 import com.neighborhood.icescreamhorror.guide.question.Questions;
+import com.neighborhood.icescreamhorror.guide.utils.BannerUltils;
+import com.neighborhood.icescreamhorror.guide.utils.Contrans;
 import com.neighborhood.icescreamhorror.guide.utils.CustomDialog;
 import com.neighborhood.icescreamhorror.guide.utils.SharedPrefsUtils;
 import com.neighborhood.icescreamhorror.guide.utils.UnifiedNativeAdsUtils;
@@ -96,8 +101,9 @@ public class Home extends AppCompatActivity implements RatingDialog.RatingDialog
 //            }
 //        });
         AdView adView = new AdView(this);
-        adView.setAdSize(AdSize.MEDIUM_RECTANGLE);
+        adView.setAdSize(AdSize.SMART_BANNER);
         adView.setAdUnitId(getString(R.string.id_banner));
+        adView.setAdListener(new BannerUltils().adListener(BannerUltils.KEY_CONTRANS_ADS_BANNER_HOME)   );
         adView.loadAd(new AdRequest.Builder().build());
         frameAdsHome.removeAllViews();
         frameAdsHome.addView(adView);

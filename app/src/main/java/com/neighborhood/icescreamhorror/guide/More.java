@@ -1,16 +1,19 @@
 package com.neighborhood.icescreamhorror.guide;
 
 import android.os.Bundle;
+import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.neighborhood.icescreamhorror.guide.model.Common;
+import com.neighborhood.icescreamhorror.guide.utils.BannerUltils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,6 +41,7 @@ public class More extends AppCompatActivity {
         adViewMore = new AdView(this);
         adViewMore.setAdSize(AdSize.BANNER);
         adViewMore.setAdUnitId(getString(R.string.id_banner));
+        adViewMore.setAdListener(new BannerUltils().adListener(BannerUltils.KEY_CONTRANS_ADS_BANNER_MORE));
         adViewMore.loadAd(adRequest);
 
         frameAds1.removeAllViews();

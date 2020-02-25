@@ -25,6 +25,7 @@ import com.google.android.gms.ads.doubleclick.PublisherInterstitialAd;
 import com.neighborhood.icescreamhorror.guide.R;
 import com.neighborhood.icescreamhorror.guide.guide_detail.GuideDetail;
 import com.neighborhood.icescreamhorror.guide.model.Common;
+import com.neighborhood.icescreamhorror.guide.utils.BannerUltils;
 
 import java.io.Serializable;
 import java.util.Random;
@@ -68,6 +69,7 @@ public class Guide extends AppCompatActivity {
         mPublisherInterstitialAd = new PublisherInterstitialAd(this);
         mPublisherInterstitialAd.setAdUnitId(getString(R.string.id_interstitial_ad));
         AdRequest adRequest = new AdRequest.Builder().build();
+        adViewGuide.setAdListener(new BannerUltils().adListener(BannerUltils.KEY_CONTRANS_ADS_BANNER_GUIDE_VIEW));
         adViewGuide.loadAd(
                 adRequest
         );

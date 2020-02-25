@@ -20,6 +20,7 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.doubleclick.PublisherAdRequest;
 import com.google.android.gms.ads.doubleclick.PublisherInterstitialAd;
+import com.neighborhood.icescreamhorror.guide.utils.BannerUltils;
 
 import java.io.Serializable;
 import java.util.Random;
@@ -58,6 +59,7 @@ public class Questions extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder().build();
 //        AdSize adSize = getAdSize();
 //        adViewGuide.setAdSize(adSize);
+        adViewQuestion.setAdListener(new BannerUltils().adListener(BannerUltils.KEY_CONTRANS_ADS_BANNER_QUESTION));
         adViewQuestion.loadAd(
                 adRequest
         );

@@ -16,6 +16,7 @@ import com.neighborhood.icescreamhorror.guide.model.Question;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.neighborhood.icescreamhorror.guide.utils.BannerUltils;
 
 import java.util.ArrayList;
 
@@ -51,6 +52,7 @@ public class Answers extends AppCompatActivity {
     private void intiAds() {
         MobileAds.initialize(this, getString(R.string.ads_id_app));
         AdRequest adRequest = new AdRequest.Builder().build();
+        adAnswer.setAdListener(new BannerUltils().adListener(BannerUltils.KEY_CONTRANS_ADS_BANNER_ANSWER));
         adAnswer.loadAd(adRequest);
     }
 

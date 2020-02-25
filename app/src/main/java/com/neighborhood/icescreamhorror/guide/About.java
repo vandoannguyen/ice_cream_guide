@@ -11,6 +11,7 @@ import com.neighborhood.icescreamhorror.guide.model.Common;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.neighborhood.icescreamhorror.guide.utils.BannerUltils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,6 +34,7 @@ public class About extends AppCompatActivity {
         ButterKnife.bind(this);
         MobileAds.initialize(this, getString(R.string.ads_id_app));
         AdRequest adRequest = new AdRequest.Builder().build();
+        adViewAbout.setAdListener(new BannerUltils().adListener(BannerUltils.KEY_CONTRANS_ADS_BANNER_ABOUT));
         adViewAbout.loadAd(adRequest);
     }
 
