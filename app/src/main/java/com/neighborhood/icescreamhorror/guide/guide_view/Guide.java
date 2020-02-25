@@ -69,7 +69,7 @@ public class Guide extends AppCompatActivity {
         mPublisherInterstitialAd = new PublisherInterstitialAd(this);
         mPublisherInterstitialAd.setAdUnitId(getString(R.string.id_interstitial_ad));
         AdRequest adRequest = new AdRequest.Builder().build();
-        adViewGuide.setAdListener(new BannerUltils().adListener(BannerUltils.KEY_CONTRANS_ADS_BANNER_GUIDE_VIEW));
+        adViewGuide.setAdListener(new BannerUltils().adListener(adViewGuide,BannerUltils.KEY_CONTRANS_ADS_BANNER_GUIDE_VIEW));
         adViewGuide.loadAd(
                 adRequest
         );

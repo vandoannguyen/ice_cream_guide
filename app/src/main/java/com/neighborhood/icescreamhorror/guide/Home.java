@@ -101,9 +101,9 @@ public class Home extends AppCompatActivity implements RatingDialog.RatingDialog
 //            }
 //        });
         AdView adView = new AdView(this);
-        adView.setAdSize(AdSize.SMART_BANNER);
+        adView.setAdSize(AdSize.MEDIUM_RECTANGLE);
         adView.setAdUnitId(getString(R.string.id_banner));
-        adView.setAdListener(new BannerUltils().adListener(BannerUltils.KEY_CONTRANS_ADS_BANNER_HOME)   );
+        adView.setAdListener(new BannerUltils().adListener(adView, BannerUltils.KEY_CONTRANS_ADS_BANNER_HOME));
         adView.loadAd(new AdRequest.Builder().build());
         frameAdsHome.removeAllViews();
         frameAdsHome.addView(adView);

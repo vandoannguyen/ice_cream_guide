@@ -52,7 +52,7 @@ public class Answers extends AppCompatActivity {
     private void intiAds() {
         MobileAds.initialize(this, getString(R.string.ads_id_app));
         AdRequest adRequest = new AdRequest.Builder().build();
-        adAnswer.setAdListener(new BannerUltils().adListener(BannerUltils.KEY_CONTRANS_ADS_BANNER_ANSWER));
+        adAnswer.setAdListener(new BannerUltils().adListener(adAnswer,BannerUltils.KEY_CONTRANS_ADS_BANNER_ANSWER));
         adAnswer.loadAd(adRequest);
     }
 

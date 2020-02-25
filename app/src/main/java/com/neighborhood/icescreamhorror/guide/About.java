@@ -34,7 +34,7 @@ public class About extends AppCompatActivity {
         ButterKnife.bind(this);
         MobileAds.initialize(this, getString(R.string.ads_id_app));
         AdRequest adRequest = new AdRequest.Builder().build();
-        adViewAbout.setAdListener(new BannerUltils().adListener(BannerUltils.KEY_CONTRANS_ADS_BANNER_ABOUT));
+        adViewAbout.setAdListener(new BannerUltils().adListener(adViewAbout,BannerUltils.KEY_CONTRANS_ADS_BANNER_ABOUT));
         adViewAbout.loadAd(adRequest);
     }
 

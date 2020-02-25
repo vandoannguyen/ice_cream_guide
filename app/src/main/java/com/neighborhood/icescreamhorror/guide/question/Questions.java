@@ -59,7 +59,7 @@ public class Questions extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder().build();
 //        AdSize adSize = getAdSize();
 //        adViewGuide.setAdSize(adSize);
-        adViewQuestion.setAdListener(new BannerUltils().adListener(BannerUltils.KEY_CONTRANS_ADS_BANNER_QUESTION));
+        adViewQuestion.setAdListener(new BannerUltils().adListener(adViewQuestion,BannerUltils.KEY_CONTRANS_ADS_BANNER_QUESTION));
         adViewQuestion.loadAd(
                 adRequest
         );

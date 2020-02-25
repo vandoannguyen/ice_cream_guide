@@ -41,7 +41,7 @@ public class More extends AppCompatActivity {
         adViewMore = new AdView(this);
         adViewMore.setAdSize(AdSize.BANNER);
         adViewMore.setAdUnitId(getString(R.string.id_banner));
-        adViewMore.setAdListener(new BannerUltils().adListener(BannerUltils.KEY_CONTRANS_ADS_BANNER_MORE));
+        adViewMore.setAdListener(new BannerUltils().adListener(adViewMore,BannerUltils.KEY_CONTRANS_ADS_BANNER_MORE));
         adViewMore.loadAd(adRequest);
 
         frameAds1.removeAllViews();

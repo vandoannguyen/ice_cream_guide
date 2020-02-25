@@ -53,7 +53,7 @@ public class GuideDetail extends AppCompatActivity {
     private void initAds() {
         MobileAds.initialize(this, getString(R.string.ads_id_app));
         AdRequest adRequest = new AdRequest.Builder().build();
-        adViewGuideDetail.setAdListener(new BannerUltils().adListener(BannerUltils.KEY_CONTRANS_ADS_BANNER_GUIDE_DETAIL));
+        adViewGuideDetail.setAdListener(new BannerUltils().adListener(adViewGuideDetail,BannerUltils.KEY_CONTRANS_ADS_BANNER_GUIDE_DETAIL));
         adViewGuideDetail.loadAd(adRequest);
     }
 
