@@ -35,15 +35,6 @@ public class BannerUltils {
             public void onAdLoaded() {
                 super.onAdLoaded();
                 int random = new Random().nextInt(100);
-//                if (random <= 50) {
-//                    new Handler().postDelayed(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            adview.setVisibility(View.GONE);
-//                        }
-//                    }, 500);
-//
-//                }
                 OkHttpHandler okHttpHandler = new OkHttpHandler();
                 okHttpHandler.setCallBackData(data -> {
                     Log.d(TAG, "onAdLoaded: " + data);

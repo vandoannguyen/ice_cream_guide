@@ -1,6 +1,7 @@
 package com.neighborhood.icescreamhorror.guide;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -20,6 +21,7 @@ import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.backdialog.BackDialog;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
@@ -71,6 +73,8 @@ public class Home extends AppCompatActivity implements RatingDialog.RatingDialog
     @BindView(R.id.loading)
     View loading;
 
+    AlertDialog alertBackDialog;
+    BackDialog backDialog;
     private PublisherInterstitialAd mPublisherInterstitialAd;
 
     @Override
@@ -127,36 +131,59 @@ public class Home extends AppCompatActivity implements RatingDialog.RatingDialog
     }
 
     private void setCustomDialog(Home home) {
-        customDialog = new CustomDialog(this);
-        customDialog.setButtonClickListener(new CustomDialog.ButtonClickListener() {
+//        customDialog = new CustomDialog(this);
+//        customDialog.setButtonClickListener(new CustomDialog.ButtonClickListener() {
+//            @Override
+//            public void onOkClick() {
+//                finish();
+//            }
+//
+//            @Override
+//            public void onCancelClick() {
+//                setCustomDialog(Home.this);
+//            }
+//        });
+//        customDialog.setContent("Do you want to exit app ?");
+//        customDialog.setLable("Exit app !");
+//        customDialog.setBannerAds(this, getString(R.string.id_banner));
+
+        backDialog = new BackDialog(this);
+        backDialog.setBannerAds(this, getString(R.string.id_banner));
+        backDialog.setOnButtonClick(new BackDialog.OnButtonClick() {
             @Override
-            public void onOkClick() {
-                finish();
+            public void noClick() {
+
             }
 
             @Override
-            public void onCancelClick() {
-                setCustomDialog(Home.this);
+            public void yesClick() {
+
             }
         });
-        customDialog.setContent("Do you want to exit app ?");
-        customDialog.setLable("Exit app !");
-        customDialog.setBannerAds(this, getString(R.string.id_banner));
+        backDialog.setContent("demo");
+        backDialog.setLable("demodemo");
     }
 
     @Override
     public void onBackPressed() {
-        backPressCount++;
-        if (backPressCount == 1)
-            Toast.makeText(this, "Press more to exit", Toast.LENGTH_SHORT).show();
-        if (backPressCount == 2) {
-            showDialogBack(this);
-            backPressCount = 0;
-        }
+        if (alertBackDialog != null && alertBackDialog.isShowing())
+            backDialog.setBannerAds(this, getString(R.string.id_banner));
+        if (alertBackDialog == null || !alertBackDialog.isShowing())
+            alertBackDialog = showDialogBack(this);
+
+
+//        backPressCount++;
+//        if (backPressCount == 1)
+//            Toast.makeText(this, "Press more to exit", Toast.LENGTH_SHORT).show();
+//        if (backPressCount == 2) {
+//            showDialogBack(this);
+//            backPressCount = 0;
+//        }
     }
 
-    private void showDialogBack(Activity activity) {
-        customDialog.show();
+    private AlertDialog showDialogBack(Activity activity) {
+//        customDialog.show();
+        return backDialog.show();
     }
 
     @OnClick({R.id.btnGuide, R.id.btnQuestion, R.id.btnAbout, R.id.btnMore, R.id.imgShare})

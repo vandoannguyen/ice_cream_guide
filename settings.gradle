@@ -1,2 +1,2 @@
-include ':app', ':ratedialog'
+include ':app', ':ratedialog', ':backdialog'
 rootProject.name='iscream2_android'

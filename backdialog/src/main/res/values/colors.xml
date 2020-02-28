@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorButtonNo">#19bd9b</color>
+    <color name="colorButtonYes">#FF3B3B</color>
+    <color name="white">#ffffff</color>
+    <color name="red">#FF3B3B</color>
+</resources>
