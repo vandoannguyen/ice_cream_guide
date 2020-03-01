@@ -4,6 +4,9 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -12,8 +15,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/FullscreenTheme">
-        <activity android:name="com.neighborhood.icescreamhorror.guide.More"></activity>
-        <activity android:name="com.neighborhood.icescreamhorror.guide.About" />
+        <activity android:name=".WallpaperView"></activity>
+        <activity android:name=".list_wallpaper.ListWallpaper" />
+        <activity android:name=".More" />
+        <activity android:name=".About" />
         <activity android:name=".answer.Answers" />
         <activity android:name=".question.Questions" />
         <activity
@@ -22,14 +27,14 @@
             android:label="@string/title_activity_guide_detail"
             android:theme="@style/FullscreenTheme" />
         <activity android:name=".guide_view.Guide" />
-        <activity android:name="com.neighborhood.icescreamhorror.guide.Home">
+        <activity android:name=".Home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.neighborhood.icescreamhorror.guide.MainActivity" />
+        <activity android:name=".MainActivity" />
 
         <meta-data
             android:name="com.google.android.gms.ads.AD_MANAGER_APP"

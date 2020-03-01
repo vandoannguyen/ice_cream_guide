@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp">
+        <ImageView
+            android:id="@+id/imgBackListWallpaper"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:src="@mipmap/ic_light_back"
+            android:padding="@dimen/_10sdp"
+            />
+        <TextView
+            android:text="WallPaper"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:textSize="@dimen/_25ssp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/revListWallpaper"
+        tools:itemCount="20"
+        tools:listitem="@layout/item_wallpaper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

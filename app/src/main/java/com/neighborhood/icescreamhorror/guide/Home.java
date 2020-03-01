@@ -2,13 +2,14 @@ package com.neighborhood.icescreamhorror.guide;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.WallpaperManager;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.provider.SyncStateContract;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
@@ -16,7 +17,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,17 +25,15 @@ import com.example.backdialog.BackDialog;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
-import com.neighborhood.icescreamhorror.guide.R;
 import com.neighborhood.icescreamhorror.guide.guide_view.Guide;
+import com.neighborhood.icescreamhorror.guide.list_wallpaper.ListWallpaper;
 import com.neighborhood.icescreamhorror.guide.model.Category;
 import com.neighborhood.icescreamhorror.guide.model.Common;
 import com.neighborhood.icescreamhorror.guide.model.Question;
 import com.neighborhood.icescreamhorror.guide.question.Questions;
 import com.neighborhood.icescreamhorror.guide.utils.BannerUltils;
-import com.neighborhood.icescreamhorror.guide.utils.Contrans;
 import com.neighborhood.icescreamhorror.guide.utils.CustomDialog;
 import com.neighborhood.icescreamhorror.guide.utils.SharedPrefsUtils;
-import com.neighborhood.icescreamhorror.guide.utils.UnifiedNativeAdsUtils;
 import com.neighborhood.ratedialog.RatingDialog;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.MobileAds;
@@ -72,11 +70,11 @@ public class Home extends AppCompatActivity implements RatingDialog.RatingDialog
     private String TAG = "HOME";
     @BindView(R.id.loading)
     View loading;
-
     AlertDialog alertBackDialog;
     BackDialog backDialog;
     private PublisherInterstitialAd mPublisherInterstitialAd;
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,6 +85,11 @@ public class Home extends AppCompatActivity implements RatingDialog.RatingDialog
         initAds();
         initControl();
         rateAuto();
+        try {
+            setWallpaper();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void initAds() {
@@ -160,7 +163,7 @@ public class Home extends AppCompatActivity implements RatingDialog.RatingDialog
 
             }
         });
-        backDialog.setContent("demo");
+        backDialog.setContent("setWallpaper");
         backDialog.setLable("demodemo");
     }
 
@@ -186,7 +189,7 @@ public class Home extends AppCompatActivity implements RatingDialog.RatingDialog
         return backDialog.show();
     }
 
-    @OnClick({R.id.btnGuide, R.id.btnQuestion, R.id.btnAbout, R.id.btnMore, R.id.imgShare})
+    @OnClick({R.id.btnGuide, R.id.btnQuestion, R.id.btnAbout, R.id.btnMore, R.id.imgShare, R.id.btnWallpaper})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btnGuide: {
@@ -213,6 +216,10 @@ public class Home extends AppCompatActivity implements RatingDialog.RatingDialog
                 sendIntent.setType("text/plain");
                 startActivity(sendIntent);
                 Log.e(TAG, "onViewClicked: " + "share");
+                break;
+            }
+            case R.id.btnWallpaper:{
+                intentToScreenAds(ListWallpaper.class);
                 break;
             }
         }
@@ -350,5 +357,10 @@ public class Home extends AppCompatActivity implements RatingDialog.RatingDialog
         //return the optimal size depends on your orientation (landscape or portrait)
         return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, adWidth);
     }
-
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    void setWallpaper() throws IOException {
+        WallpaperManager myWallpaperManager
+                = WallpaperManager.getInstance(getApplicationContext());
+//        myWallpaperManager.setBitmap(((BitmapDrawable)getDrawable(R.drawable.png1)).getBitmap(), null, true, WallpaperManager.FLAG_SYSTEM);
+    }
 }

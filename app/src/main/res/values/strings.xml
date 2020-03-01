@@ -6,10 +6,10 @@
     <string name="id_interstitial_ad">/6499/example/interstitial</string>
 
 
-<!--    <string name="id_banner">ca-app-pub-7631653983008802/1183389193</string>-->
-<!--    <string name="ads_id_app">ca-app-pub-7631653983008802~3049158728</string>-->
-<!--    <string name="id_native_ads">ca-app-pub-7631653983008802/2057487162</string>-->
-<!--    <string name="id_interstitial_ad">ca-app-pub-7631653983008802/2304899177</string>-->
+    <!--    <string name="id_banner">ca-app-pub-7631653983008802/1183389193</string>-->
+    <!--    <string name="ads_id_app">ca-app-pub-7631653983008802~3049158728</string>-->
+    <!--    <string name="id_native_ads">ca-app-pub-7631653983008802/2057487162</string>-->
+    <!--    <string name="id_interstitial_ad">ca-app-pub-7631653983008802/2304899177</string>-->
 
 
     <string name="ad_attribution">Ad</string>
@@ -45,4 +45,5 @@
     <string name="title_button_question">Question</string>
     <string name="title_button_guide">Guide</string>
     <string name="title_activity_guide">Guide</string>
+    <string name="title_button_wallpaper">Wallpaper</string>
 </resources>

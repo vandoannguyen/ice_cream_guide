@@ -37,20 +37,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center">
-
                 <Button
-                    android:id="@+id/btnGuide"
+                    android:id="@+id/btnWallpaper"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:outlineSpotShadowColor="@color/colorButtonBoder"
-                    android:text="@string/title_button_guide"
+                    android:fontFamily="@font/fonts"
+                    android:text="@string/title_button_wallpaper"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="30sp"
                     app:backgroundTint="@color/colorButton"
                     app:strokeColor="@color/colorButtonBoder"
                     app:strokeWidth="@dimen/_2sdp" />
+
 
                 <Button
                     android:id="@+id/btnQuestion"
@@ -102,6 +102,21 @@
                     app:backgroundTint="@color/colorButton"
                     app:strokeColor="@color/colorButtonBoder"
                     app:strokeWidth="@dimen/_2sdp" />
+                <Button
+                    android:id="@+id/btnGuide"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_25dps"
+                    android:outlineSpotShadowColor="@color/colorButtonBoder"
+                    android:text="@string/title_button_guide"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    app:backgroundTint="@color/colorButton"
+                    app:strokeColor="@color/colorButtonBoder"
+                    app:strokeWidth="@dimen/_2sdp" />
+
             </LinearLayout>
         </LinearLayout>
 

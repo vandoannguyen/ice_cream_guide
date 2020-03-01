@@ -40,8 +40,8 @@ public class UnifiedNativeAdsUtils {
     public static UnifiedNativeAdsUtils getInstance(Activity activity) {
         return sUnifiedNativeAdsUtils == null ? sUnifiedNativeAdsUtils = new UnifiedNativeAdsUtils(activity) : sUnifiedNativeAdsUtils;
     }
-    public void setNativeAds(final FrameLayout frameLayout, final int layout, final AdListener adListener) {
-        AdLoader.Builder builder = new AdLoader.Builder(this.activity, Contrans.AD_MANAGER_AD_UNIT_ID(activity.getApplicationContext())).withAdListener(new AdListener() {
+    public void setNativeAds(final FrameLayout frameLayout,String idNativeAds, final int layout, final AdListener adListener) {
+        AdLoader.Builder builder = new AdLoader.Builder(this.activity, idNativeAds).withAdListener(new AdListener() {
             @Override
             public void onAdClosed() {
                 super.onAdClosed();

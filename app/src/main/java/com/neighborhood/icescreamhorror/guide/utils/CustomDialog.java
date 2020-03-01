@@ -82,9 +82,9 @@ public class CustomDialog {
     }
 
     public void setNativeAds(Activity activity, int layout) {
-        UnifiedNativeAdsUtils.getInstance(activity).setNativeAds(frameLayout, layout, new AdListener() {
-
-        });
+//        UnifiedNativeAdsUtils.getInstance(activity).setNativeAds(frameLayout,, layout, new AdListener() {
+//
+//        });
     }
 
     public void show() {
